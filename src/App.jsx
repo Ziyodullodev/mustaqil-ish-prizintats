@@ -1,0 +1,649 @@
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Code, Book, Zap, Shield, Layers } from 'lucide-react';
+
+const Presentation = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      title: "Funksional Dasturlashning Asosiy Prinsiplari va Amaliy Qo'llanilishi",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full space-y-8">
+          <Code className="w-24 h-24 text-blue-600" />
+          <h1 className="text-5xl font-bold text-center text-gray-800">
+            Funksional Dasturlash
+          </h1>
+          <p className="text-2xl text-center text-gray-600">
+            Asosiy Prinsiplari va Amaliy Qo'llanilishi
+          </p>
+          <div className="mt-8 text-center text-gray-500">
+            <p className="text-lg">Bajardi: Aliyev Z.O</p>
+            <p className="text-lg">Guruh: S750-22DI</p>
+            <p className="text-lg">Tekshirdi: ERMATOVA Z. Q</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Mundarija",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-8 text-blue-600">Mundarija</h2>
+          <div className="space-y-4 text-xl">
+            <div className="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg">
+              <span className="text-2xl font-bold text-blue-600">1</span>
+              <span>Kirish: Funksional dasturlash nima?</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-green-50 rounded-lg">
+              <span className="text-2xl font-bold text-green-600">2</span>
+              <span>Tarixiy rivojlanish</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-lg">
+              <span className="text-2xl font-bold text-purple-600">3</span>
+              <span>Amaliy loyihalar (To-do list)</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-orange-50 rounded-lg">
+              <span className="text-2xl font-bold text-orange-600">4</span>
+              <span>FP vs Imperativ dasturlash</span>
+            </div>
+            <div className="flex items-center space-x-4 p-4 bg-red-50 rounded-lg">
+              <span className="text-2xl font-bold text-red-600">5</span>
+              <span>Xulosa va tavsiyalar</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Funksional Dasturlash nima?",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Funksional Dasturlash (FP)</h2>
+          <div className="space-y-6">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <p className="text-xl leading-relaxed">
+                <strong>Ta'rif:</strong> Dasturlash paradigmasi bo'lib, dasturlar matematik funksiyalar asosida quriladi va holatni o'zgartirmaslik (immutability) tamoyiliga amal qilinadi.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-6">
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-green-700">✓ Asosiy Xususiyat</h3>
+                <p>O'zgaruvchilarni qayta o'zgartirish o'rniga, har safar yangi qiymat yaratiladi</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-purple-700">✓ Maqsad</h3>
+                <p>Kodni ishonchli, bashoratli va xatolarga kam moyil qilish</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Tarixiy Rivojlanish",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Tarixiy Rivojlanish</h2>
+          <div className="space-y-4">
+            <div className="flex items-start space-x-4 bg-gray-50 p-4 rounded-lg">
+              <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold flex-shrink-0">1930</div>
+              <div>
+                <h3 className="font-bold text-lg">Lambda Kalkulus</h3>
+                <p>Alonzo Church tomonidan ishlab chiqilgan nazariy asos</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4 bg-gray-50 p-4 rounded-lg">
+              <div className="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold flex-shrink-0">1950</div>
+              <div>
+                <h3 className="font-bold text-lg">Lisp tili yaratildi</h3>
+                <p>Dunyodagi birinchi funksional dasturlash tili</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4 bg-gray-50 p-4 rounded-lg">
+              <div className="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold flex-shrink-0">1970-80</div>
+              <div>
+                <h3 className="font-bold text-lg">ML, Scheme tillari</h3>
+                <p>Funksional yondashuvni chuqurlashtirgan yangi tillar</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4 bg-gray-50 p-4 rounded-lg">
+              <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold flex-shrink-0">1990</div>
+              <div>
+                <h3 className="font-bold text-lg">Haskell</h3>
+                <p>To'liq funksional va qat'iy turga ega til, akademik namuna</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "FP Asosiy Afzalliklari",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-8 text-blue-600">Asosiy Afzalliklar</h2>
+          <div className="grid grid-cols-3 gap-6">
+            <div className="bg-blue-50 p-6 rounded-lg flex flex-col items-center text-center">
+              <Book className="w-16 h-16 text-blue-600 mb-4" />
+              <h3 className="font-bold text-xl mb-2">O'qilishi Oson</h3>
+              <p className="text-gray-700">Har bir funksiya mustaqil, tashqi holatga bog'liq emas</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg flex flex-col items-center text-center">
+              <Shield className="w-16 h-16 text-green-600 mb-4" />
+              <h3 className="font-bold text-xl mb-2">Kam Xatolar</h3>
+              <p className="text-gray-700">Ma'lumotlar o'zgarmaydi, xatolarga kam moyil</p>
+            </div>
+            <div className="bg-purple-50 p-6 rounded-lg flex flex-col items-center text-center">
+              <Zap className="w-16 h-16 text-purple-600 mb-4" />
+              <h3 className="font-bold text-xl mb-2">Parallel Hisoblash</h3>
+              <p className="text-gray-700">Bir vaqtda bir nechta funksiya ishlashi mumkin</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Imperativ vs Funksional",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Kod Taqqoslash</h2>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-red-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-red-700">Imperativ Uslub</h3>
+              <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+{`x = 5
+x = x + 1
+x = x * 2
+print(x)  # 12`}
+              </pre>
+              <p className="mt-4 text-gray-700">O'zgaruvchi holati o'zgaradi</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-green-700">Funksional Uslub</h3>
+              <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+{`def add_one(x):
+    return x + 1
+
+def multiply_two(x):
+    return x * 2
+
+result = multiply_two(add_one(5))
+print(result)  # 12`}
+              </pre>
+              <p className="mt-4 text-gray-700">Yangi qiymat qaytariladi</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Amaliy Loyiha: To-do List",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Amaliy Loyiha: To-do List</h2>
+          <div className="space-y-6">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4">Loyiha Talablari:</h3>
+              <ul className="space-y-2 text-lg">
+                <li>✓ Vazifa qo'shish</li>
+                <li>✓ Vazifa o'chirish</li>
+                <li>✓ Vazifalarni filtrlash (tamomlangan/tamomlanmagan)</li>
+                <li>✓ Statistika: Jami vazifalar, tamomlanganlar soni</li>
+                <li>✓ Qidiruv: Rekursiya orqali ierarxik vazifalarda</li>
+              </ul>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-2">FP Yondashuvi:</h3>
+              <p className="text-lg">Holat o'zgarmas obyekt yoki massiv. Har bir operatsiya yangi holat qaytaradi.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Sof Funksiyalar",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Sof Funksiyalar</h2>
+          <div className="bg-blue-50 p-6 rounded-lg mb-6">
+            <p className="text-xl mb-4">
+              <strong>Ta'rif:</strong> Kirish parametrlariga bog'liq holda natija qaytaradigan va yon ta'sir yaratmaydigan funksiyalar
+            </p>
+          </div>
+          <div className="bg-white border-2 border-blue-200 p-6 rounded-lg">
+            <h3 className="font-bold text-xl mb-4">JavaScript misoli:</h3>
+            <pre className="bg-gray-50 p-4 rounded text-sm overflow-x-auto">
+{`function addTask(state, newTask) {
+  return [...state, newTask];
+}
+
+// Foydalanish
+let tasks = [{id: 1, text: "Dars tayyorlash"}];
+let newTasks = addTask(tasks, 
+  {id: 2, text: "Kod yozish"}
+);
+
+// tasks o'zgarmaydi!
+console.log(tasks.length);     // 1
+console.log(newTasks.length);  // 2`}
+            </pre>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Immutability Tamoyili",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Immutability (O'zgarmaslik)</h2>
+          <div className="space-y-6">
+            <div className="bg-purple-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4">Tushuncha:</h3>
+              <p className="text-lg">Ma'lumotlar o'zgarmas bo'lishi. Yangilash uchun yangi nusxa yaratiladi.</p>
+            </div>
+            <div className="bg-white border-2 border-purple-200 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4">Python misoli:</h3>
+              <pre className="bg-gray-50 p-4 rounded text-sm overflow-x-auto">
+{`def toggle_task(tasks, task_id):
+    return [
+        {**task, 'completed': not task['completed']} 
+        if task['id'] == task_id else task
+        for task in tasks
+    ]
+
+# Eski holat saqlanadi
+old_tasks = [{'id': 1, 'completed': False}]
+new_tasks = toggle_task(old_tasks, 1)
+# old_tasks o'zgarmaydi!`}
+              </pre>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Map va Filter",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Map va Filter Funksiyalari</h2>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-green-700">Map</h3>
+              <p className="mb-4">Massiv elementlarini o'zgartirib yangi massiv qaytaradi</p>
+              <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+{`completed = list(map(
+  lambda t: {**t, 
+    'completed': True},
+  tasks
+))`}
+              </pre>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-blue-700">Filter</h3>
+              <p className="mb-4">Shartga mos elementlarni tanlaydi</p>
+              <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+{`done = list(filter(
+  lambda t: t['completed'],
+  tasks
+))`}
+              </pre>
+            </div>
+          </div>
+          <div className="mt-6 bg-yellow-50 p-4 rounded-lg">
+            <p className="text-lg"><strong>Afzallik:</strong> Operatsiyalar sof va o'zgarmas, qayta ishlatish oson!</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "FP vs Imperativ: Taqqoslash",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Paradigmalar Taqqoslash</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-blue-600 text-white">
+                  <th className="border p-3 text-left">Xususiyat</th>
+                  <th className="border p-3 text-left">Imperativ</th>
+                  <th className="border p-3 text-left">Funksional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-gray-50">
+                  <td className="border p-3 font-bold">Yondashuv</td>
+                  <td className="border p-3">"Qanday" qilish</td>
+                  <td className="border p-3">"Nima" qilish</td>
+                </tr>
+                <tr>
+                  <td className="border p-3 font-bold">Holat</td>
+                  <td className="border p-3">O'zgaruvchan (mutable)</td>
+                  <td className="border p-3">O'zgarmas (immutable)</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border p-3 font-bold">Xatolar</td>
+                  <td className="border p-3">Ko'proq (side effects)</td>
+                  <td className="border p-3">Kamroq (pure functions)</td>
+                </tr>
+                <tr>
+                  <td className="border p-3 font-bold">Parallelizm</td>
+                  <td className="border p-3">Qiyin (locks kerak)</td>
+                  <td className="border p-3">Oson (thread-safe)</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border p-3 font-bold">O'rganish</td>
+                  <td className="border p-3">Oson</td>
+                  <td className="border p-3">Qiyin (abstrakt)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Ishlash Samaradorligi",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Benchmark Natijalari</h2>
+          <div className="bg-blue-50 p-6 rounded-lg mb-6">
+            <h3 className="font-bold text-xl mb-4">Test: 1000 elementli massivni saralash (Python)</h3>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-red-50 p-6 rounded-lg border-2 border-red-300">
+              <h3 className="font-bold text-2xl mb-4 text-red-700">Imperativ (Bubble Sort)</h3>
+              <p className="text-4xl font-bold text-red-600 mb-2">~0.327 s</p>
+              <p className="text-gray-700">Murakkablik: O(n²)</p>
+              <p className="text-sm text-gray-600 mt-4">Loop va mutatsiya ishlatilgan</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300">
+              <h3 className="font-bold text-2xl mb-4 text-green-700">Funksional (sorted)</h3>
+              <p className="text-4xl font-bold text-green-600 mb-2">~0.0007 s</p>
+              <p className="text-gray-700">Murakkablik: O(n log n)</p>
+              <p className="text-sm text-gray-600 mt-4">Built-in optimizatsiya</p>
+            </div>
+          </div>
+          <div className="mt-6 bg-yellow-50 p-4 rounded-lg">
+            <p className="text-lg"><strong>Xulosa:</strong> FP ko'pincha tezroq, parallelizm bilan yanada samarali!</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Parallel Computing",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Parallelizm: FPning Katta Afzalligi</h2>
+          <div className="space-y-6">
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-green-700">✓ Funksional Dasturlash</h3>
+              <p className="text-lg mb-4">Sof funksiyalar thread-safe, parallel ishlashga mos</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Map funksiyasini parallel qilish oson</li>
+                <li>Python multiprocessing ishlatish mumkin</li>
+                <li>Big Data (Apache Spark) FP uslubida ishlaydi</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-4 text-red-700">✗ Imperativ Dasturlash</h3>
+              <p className="text-lg mb-4">Mutable state tufayli murakkab</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Shared state locklarni talab qiladi</li>
+                <li>Race conditions xavfi</li>
+                <li>Multi-threading murakkab</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Real Loyihalarda Qo'llanilishi",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Real Loyihalarda FP</h2>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">🌐 Web Development</h3>
+                <p>React, Redux - holatni boshqarish</p>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">📊 Big Data</h3>
+                <p>Apache Spark, Hadoop - parallel hisoblash</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">🤖 AI/ML</h3>
+                <p>TensorFlow - immutability va matematik funksiyalar</p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-orange-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">☁️ Backend</h3>
+                <p>Node.js, Elixir - serverless computing</p>
+              </div>
+              <div className="bg-pink-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">💼 Kompaniyalar</h3>
+                <p>Twitter, Netflix, Google - production'da ishlatadi</p>
+              </div>
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2">🔬 Data Science</h3>
+                <p>Immutable data transformatsiya</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Zamonaviy Tillar",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Zamonaviy FP Tillari</h2>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-blue-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">Haskell</h3>
+              <p className="text-sm">Sof FP, akademik</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">Scala</h3>
+              <p className="text-sm">JVM, hybrid</p>
+            </div>
+            <div className="bg-purple-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">Elixir</h3>
+              <p className="text-sm">Concurrent, Erlang VM</p>
+            </div>
+            <div className="bg-yellow-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">F#</h3>
+              <p className="text-sm">.NET, functional-first</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">Kotlin</h3>
+              <p className="text-sm">JVM, pragmatik</p>
+            </div>
+            <div className="bg-pink-50 p-4 rounded-lg text-center">
+              <h3 className="font-bold text-xl mb-2">Rust</h3>
+              <p className="text-sm">Systems, FP elementlari</p>
+            </div>
+          </div>
+          <div className="mt-6 bg-gray-50 p-4 rounded-lg">
+            <h3 className="font-bold text-lg mb-2">Hybrid Tillar:</h3>
+            <p className="text-lg">Python, JavaScript, Java - FP va imperativ elementlarni birlashtiradi</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Xulosa",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-8 text-blue-600 text-center">Xulosa</h2>
+          <div className="space-y-6">
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-3 text-green-700">✓ FPni tanlang, agar:</h3>
+              <ul className="space-y-2 text-lg">
+                <li>• Loyiha modulli va masshtablanadigan bo'lishi kerak</li>
+                <li>• Parallel hisoblash muhim (Big Data, AI)</li>
+                <li>• Xatolarsiz kod kerak (banking, healthcare)</li>
+                <li>• Backend, web development (React, Redux)</li>
+              </ul>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl mb-3 text-blue-700">💡 Tavsiyalar:</h3>
+              <ul className="space-y-2 text-lg">
+                <li>• Hybrid tillarni o'rganing (Python, JavaScript)</li>
+                <li>• Oddiy loyihalar bilan boshlang (To-do list)</li>
+                <li>• Map, filter, reduce ni egallang</li>
+                <li>• Imperativ va FPni birga ishlating</li>
+              </ul>
+            </div>
+            <div className="bg-purple-50 p-6 rounded-lg text-center">
+              <p className="text-xl font-bold">FP - zamonaviy dasturlashning ajralmas qismi!</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Adabiyotlar",
+      content: (
+        <div className="p-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-600">Foydalanilgan Adabiyotlar</h2>
+          <div className="space-y-4 text-lg">
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="font-bold">1. Bird, R. (1998)</p>
+              <p className="text-gray-700">Introduction to Functional Programming using Haskell. Prentice Hall.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="font-bold">2. Lipovača, M. (2011)</p>
+              <p className="text-gray-700">Learn You a Haskell for Great Good!. No Starch Press.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="font-bold">3. Chiusano, P., & Bjarnason, R. (2014)</p>
+              <p className="text-gray-700">Functional Programming in Scala. Manning Publications.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="font-bold">4. Tran, M. Q. (2025)</p>
+              <p className="text-gray-700">The Art of Functional Programming. Pragmatic Bookshelf.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="font-bold">5. Alex Ott's Functional Programming Books</p>
+              <p className="text-gray-700">https://alexott.net/en/fp/books/</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Rahmat!",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full space-y-8">
+          <Layers className="w-32 h-32 text-blue-600" />
+          <h1 className="text-6xl font-bold text-center text-gray-800">
+            E'tiboringiz uchun rahmat!
+          </h1>
+          <div className="text-center space-y-4">
+            <p className="text-2xl text-gray-600">Savollar?</p>
+            <div className="bg-blue-50 p-6 rounded-lg mt-6">
+              <p className="text-xl font-bold text-blue-700">Bajardi: Aliyev Z.O</p>
+              <p className="text-lg text-gray-600">Guruh: S750-22DI</p>
+              <p className="text-lg text-gray-600">Farg'ona Davlat Texnika Universiteti</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'ArrowLeft') {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      } else if (e.key === 'ArrowRight') {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [slides.length]);
+
+  return (
+    <div className="w-full h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex flex-col">
+      {/* Header */}
+      <div className="bg-white shadow-md px-6 py-3 flex justify-between items-center">
+        <div className="flex items-center space-x-3">
+          <Code className="w-8 h-8 text-blue-600" />
+          <h2 className="text-xl font-bold text-gray-800">Funksional Dasturlash</h2>
+        </div>
+        <div className="text-sm text-gray-600">
+          Slayd {currentSlide + 1} / {slides.length}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center p-8">
+          <div className="w-full h-full bg-white rounded-xl shadow-2xl overflow-hidden">
+            {slides[currentSlide].content}
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+        <button
+          onClick={prevSlide}
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          <span>Oldingi</span>
+        </button>
+
+        {/* Dots Pagination */}
+        <div className="flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide
+                  ? 'bg-blue-600 w-8'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={nextSlide}
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+        >
+          <span>Keyingi</span>
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Keyboard Navigation Hint */}
+      <div className="bg-gray-100 px-6 py-2 text-center text-sm text-gray-600">
+        Maslahat: Klaviatura strelkalarini ham ishlatishingiz mumkin ←  →
+      </div>
+    </div>
+  );
+};
+
+export default Presentation;
+
